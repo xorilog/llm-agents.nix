@@ -16,7 +16,7 @@ buildNpmPackage rec {
 
   src = fetchFromGitHub {
     owner = "AndyMik90";
-    repo = "Auto-Claude";
+    repo = "Aperant";
     rev = "v${version}";
     hash = "sha256-MwT/FGpnAbGjJAGoKJkyL0ngKWtPIpQiCSN2LzHSMAY=";
   };
@@ -105,8 +105,8 @@ buildNpmPackage rec {
 
   meta = {
     description = "Autonomous multi-agent coding framework powered by Claude AI";
-    homepage = "https://github.com/AndyMik90/Auto-Claude";
-    changelog = "https://github.com/AndyMik90/Auto-Claude/releases/tag/v${version}";
+    homepage = "https://github.com/AndyMik90/Aperant";
+    changelog = "https://github.com/AndyMik90/Aperant/releases/tag/v${version}";
     license = lib.licenses.agpl3Only;
     sourceProvenance = with lib.sourceTypes; [ fromSource ];
     maintainers = with flake.lib.maintainers; [ xorilog ];
