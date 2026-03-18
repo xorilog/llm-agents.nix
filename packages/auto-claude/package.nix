@@ -80,6 +80,12 @@ buildNpmPackage rec {
     mkdir -p $out/share/auto-claude/resources/backend
     cp -r apps/backend/* $out/share/auto-claude/resources/backend/
 
+    # Symlink backend where the Electron app expects it.
+    # With ELECTRON_FORCE_IS_PACKAGED=1, process.resourcesPath points to
+    # Electron's own Resources/ dir (not ours), so the primary lookup fails.
+    # The fallback checks app.getAppPath()/../backend = $out/share/backend.
+    ln -s $out/share/auto-claude/resources/backend $out/share/backend
+
     mkdir -p $out/bin
     # The app's PythonEnvManager searches for python3 on PATH to create a
     # venv and pip-install backend dependencies at first launch.
